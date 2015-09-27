@@ -8,27 +8,25 @@ app.get('/signup', routeMiddleware.preventLoginSignup, function(req, res) {
 //signup user and log them in
 app.post('/signup', function(req, res) {
   var newUser = req.body.user;
-  console.log(newUser)
   db.User.create(newUser, function(err, user) {
     if(user) {
       req.login(user);
-      console.log('user is ',user);
       res.redirect('/users/'+ req.session.id);
     } else {
+      //change this
       console.log(err);
       res.render('users/signup');
     }
   });
 });
 
-//LOGIN ROUTE
+//render login page
 app.get('/login', routeMiddleware.preventLoginSignup, function(req, res) {
   res.render('users/login');
 });
 
+//login
 app.post('/login', function(req, res) {
-  console.log('req.body.user: ', req.body.user);
-  console.log('req.body.id: ', req.body.id);
   db.User.authenticate(req.body.user, function(err, user) {
     if(!err && user !== null) {
       req.login(user);
@@ -39,16 +37,14 @@ app.post('/login', function(req, res) {
   });
 });
 
-// show user
+// show user index page
 app.get('/users/:id',function(req,res){
   db.User.findById(req.params.id).populate('article').exec(function (err, user){
-    console.log(user)
     res.render("users/index", {user:user});
   });
 });
 
-
-//LOGOUT
+//logout user 
 app.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');

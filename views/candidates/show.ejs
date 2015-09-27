@@ -2,12 +2,14 @@
 <body>
   <% include ../partials/navbar %>
     <div class='container'>
-      <img src="<%=candidate.photo%>" width='210px' length'290px'><br/>
-       <h1><%= candidate.name%></h1>
-      <p><%= candidate.name%></p>
-      <p><%= candidate.partyFull%></p>
-      <p><a href="/candidates">Back to all candidates</a></p><br/>
-      <div class=row>
+      <div class='row'>
+      <div class="col-md-4">
+        <img src="<%=candidate.photo%>" width='210px' length'290px'><br/>
+        <h3><%= candidate.name%></h3>
+        <p><%= candidate.partyFull%></p>
+        <p><a href="/candidates">Back to all candidates</a></p><br/>
+      </div>
+      <div class="col-md-8">
        <% if (articles.length > 0 ) { %>
         <table class="table">
         <h1> Articles</h1>
@@ -16,7 +18,9 @@
               <th>Headline</th>
               <th>Source</th>
               <th>View</th>
+               <% if (session !== null ) { %>
               <th>Add to favorites</th>
+              <%}%>
             </tr>
           </thead>
           <tbody>
@@ -25,18 +29,16 @@
             <td><%= a.headline.main%></td>
             <td><%= a.source%></td>
             <td><a href='<%= a.web_url%>' target="_blank">View Article</a></td>
-            <td>
               <% if (session !== null) { %>
+              <td>
                 <form method= "post" action="/users/<%=session%>/articles">
                   <button class="center" type ="submit">Favor article</button>
                   <input type="hidden" name="headline" value="<%= a.headline.main%>"/>
                   <input type="hidden" name="link" value="<%= a.web_url%>"/>
                   <input type="hidden" name="source" value="<%=a.source%>"/>
                 </form>
-              <%} else { %>
-               <p><a href="/login">Login to save</a></p>
+                </td>
                <%}%>
-            </td>
             </tr>
             <%})%>
           </tbody>

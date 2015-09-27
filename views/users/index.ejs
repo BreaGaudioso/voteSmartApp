@@ -1,12 +1,20 @@
 <% include ../partials/header %>
 <body>
  <% include ../partials/navbar %>
-<div class='container'>
+<div class='container text-center'>
 <h2>Welcome <%=user.userName%> </h2>
-  <div>
-    <a href="/candidates">Browse Candidates</a><br/>
-    <a href="/users/<%=user.id%>/articles">View Saved Articles</a><br/>
-    <a href='/logout'>Logout</a>
+<% include ../partials/firstrow %>
+<div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <a href="/candidates">Browse Candidates</a><br/>
+            <a href="/users/<%=user.id%>/articles">View Saved Articles</a><br/>
+            <a href='/logout'>Logout</a><br/>
+        </div>
+        <div class='col-md-4'>
+        </div>
+      </div>
   </div>
   </div>
 </body>

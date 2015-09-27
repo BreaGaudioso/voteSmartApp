@@ -1,14 +1,33 @@
 <% include ./partials/header %>
 <body>
- <% include ./partials/navbar %>
-<div class='container'>
-<h2>VOTESMART</h2>
-<h3>The information you want, to elect the President we need.</h3>
-  <div>
-  <a href='/login'>Login</a></br>
-  <a href='/signup'>Signup</a><br>
-  <a href='/candidates'>Browse Candidates as guest</a></br>
-  </div>
+  <% include ./partials/navbar %>
+  <div class='container' "text-center">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 text-center">
+        <p><img src='/images/Drawing.png' length='500px' width='320px'/></p>
+        <h4>The information you want, to elect the President we need.</h4>
+      </div>
+    </div>
+     <div class="row text-center">
+     <h2>About</h2>
+     VoteSmart helps voters educate themselves on candidates running in the upcoming presidential election.
+     </div>
+       <div class="row">
+      <div class="col-lg-4 text-left">
+        <h4>Explore</h4>
+        <p><a href ="/candidates">Browse</a> 2016 president candidates.</p>
+        <p>Candidate information provided by the <a href="http://www.fec.gov/" target="_blank">Federal Election Comission.</a>
+        </p>
+      </div>
+      <div class="col-lg-4 text-left">
+      <h4>Learn</h4>
+      <p>View the latest articles written about them in <a href ="http://www.nytimes.com" target="_blank"> The New York Times.</a></p>
+      </div>
+      <div class="col-lg-4 text-left">
+      <h4>Follow</h4>
+      <p><a href ="/signup"> Create an account</a> or <a href ="/login">Login</a> to save articles and add your own from different news organizations.</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>

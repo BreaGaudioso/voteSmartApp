@@ -25,14 +25,13 @@ app.get('/candidates/:id', function (req,res){
   db.Candidate.findById(req.params.id, function (err, candidate){
     var string= candidate.name;
     var sub= string.substring(0, string.indexOf(","));
-    console.log(sub);
     request.get ("http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+sub+"&fq=news_desk:('Politics')&fq=news_desk%3A+politics&sort=newest&api-key=8cdf7518fb5468a28778c0db8fe13d98:16:72963240", function (err, response, body){
       if (err){
+        //change this
         console.log(err)
       } 
       var data = JSON.parse(body);
       var articles = data.response.docs;
-      console.log(req.session.id, "session");
       res.render('candidates/show', {candidate : candidate, articles: articles, session:req.session.id})
     });
   });
@@ -46,7 +45,6 @@ app.get('/candidates/:id/edit', function (req,res){
   });
 });
 
-
 //update
 app.put('/candidates/:id', function (req,res){
   db.Candidate.findByIdAndUpdate(req.params.id, { photo: req.body.photo} , function (err, candidate){
@@ -55,7 +53,7 @@ app.put('/candidates/:id', function (req,res){
     } else {
       res.redirect('/candidates/' + req.params.id);
     }
-  })
+  });
 });
 
 
