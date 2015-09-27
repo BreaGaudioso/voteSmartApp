@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+<body>
+ <% include ../partials/navbar %>
+  <h1> Edit Candidates Photo</h1>
+  <div>
+    <form action="/candidates/<%= candidate.id %>?_method=put" method="POST">
+    <label for="photo"> url</label>
+    <input type='text' name='photo' id='photo' value='<%= candidate.photo %>'><br/>
+    <input type="submit" value="Update">
+    </form>
+  </div>
+</body>
+</html>
+

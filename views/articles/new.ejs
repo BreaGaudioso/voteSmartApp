@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+<body>
+ <% include ../partials/navbar %>
+<div class= container>
+<div class=row>
+  <h1> Add a new Article</h1>
+    <form action="/users/<%=session%>/articles" method="POST">
+    <p><label for="headline"> Headline:</label></p>
+    <input type='text' name='headline' id='headline'>
+    <p><label for="source"> Source:</label></p>
+    <input type='text' name='source' id='source'><br/>
+    <p><label for="linke"> Link:</label></p>
+    <input type='text' name='link' id='link'><br/><br/>
+    <input type="submit" value="Add!">
+    </form>
+  </div>
+  </div>
+</body>
+</html>

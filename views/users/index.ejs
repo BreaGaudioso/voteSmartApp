@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<body>
+ <% include ../partials/navbar %>
+<div class='container'>
+<h2>Welcome <%=user.userName%> </h2>
+  <div>
+    <a href="/candidates">Browse Candidates</a><br/>
+    <a href="/users/<%=user.id%>/articles">View Saved Articles</a><br/>
+    <a href='/logout'>Logout</a>
+  </div>
+  </div>
+</body>
+</html>
+
+

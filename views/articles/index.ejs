@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+  <body>
+  <% include ../partials/navbar %>
+    <div class="container">
+      <div class='row'>
+        <table class="table">
+          <h1> Your Articles</h1>
+          <thead>
+            <tr>
+              <th>Headline</th>
+              <th>Source</th>
+              <th>View</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%articles.forEach(function(a){ %>
+            <tr>
+            <td><%= a.headline%></td>
+            <td><%= a.source%></td>
+            <td><a href='<%= a.link%>' target="_blank">View Article</a></td>
+            <td>
+              <form action="/users/<%= a.user%>/articles/<%=a.id%>?_method=DELETE" method="POST">
+              <input type="submit" value="DELETE">
+            </form>
+            </td>
+            </tr>
+            <% })%>
+          </tbody>
+        </table>
+      </div>
+      <p><a href='/users/<%=session%>/articles/new'>Add your own article</a></p>
+      <p><a href='/candidates'>Back to Candidates</a>
+    </div>
+  </body>
+</html>

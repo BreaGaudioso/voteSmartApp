@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+  <body>
+  <% include ../partials/navbar %>
+  <div class= container>
+    <div class=row>
+      <h2>Login</h2>
+    <form method='POST' action='/login'>
+      <p><label for='userName'>User name:</label></p>
+      <input type='text' id='userName' name='user[userName]' autofocus />
+      <p><label for='userPass'>Password: </label></p>
+      <input type='password' id='password' name='user[password]' /></br></br>
+      <input type='submit' value='Login'>
+    </form>
+    <a href='/signup'>Don't have an account? Signup Here</a>
+   </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+<body>
+  <% include ../partials/navbar %>
+    <div class='container'>
+      <img src="<%=candidate.photo%>" width='210px' length'290px'><br/>
+       <h1><%= candidate.name%></h1>
+      <p><%= candidate.name%></p>
+      <p><%= candidate.partyFull%></p>
+      <p><a href="/candidates">Back to all candidates</a></p><br/>
+      <div class=row>
+       <% if (articles.length > 0 ) { %>
+        <table class="table">
+        <h1> Articles</h1>
+            <thead>
+              <tr>
+              <th>Headline</th>
+              <th>Source</th>
+              <th>View</th>
+              <th>Add to favorites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%articles.forEach(function(a){ %>
+            <tr>
+            <td><%= a.headline.main%></td>
+            <td><%= a.source%></td>
+            <td><a href='<%= a.web_url%>' target="_blank">View Article</a></td>
+            <td>
+              <% if (session !== null) { %>
+                <form method= "post" action="/users/<%=session%>/articles">
+                  <button class="center" type ="submit">Favor article</button>
+                  <input type="hidden" name="headline" value="<%= a.headline.main%>"/>
+                  <input type="hidden" name="link" value="<%= a.web_url%>"/>
+                  <input type="hidden" name="source" value="<%=a.source%>"/>
+                </form>
+              <%} else { %>
+               <p><a href="/login">Login to save</a></p>
+               <%}%>
+            </td>
+            </tr>
+            <%})%>
+          </tbody>
+        </table>
+         <%} else { %>
+         Sorry, there is no additional information on this candidate.
+          <%}%>
+</div>
+</body>
+</html>
