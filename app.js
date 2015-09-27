@@ -5,6 +5,7 @@ var methodOverride = require ('method-override');
 var bodyParser = require ('body-parser');
 var mongoose = require('mongoose');
 var session = require('cookie-session');
+findOrCreate = require('mongoose-findorcreate')
 var bcrypt = require('bcrypt');
 var request = require('request');
 var u = require('underscore');
@@ -24,7 +25,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 require('./controllers/index');
-
 
 app.listen(3000, function() {
   console.log('Server is running on port 3000');
