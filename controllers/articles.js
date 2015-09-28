@@ -63,3 +63,29 @@ app.delete('/users/:user_id/articles/:id', routeMiddleware.ensureLoggedIn, funct
     }
   });
 });
+
+
+
+//search
+app.get('/articles/search', function (req,res){
+  res.render('articles/search');
+});
+
+//searchResults
+app.get('/articles/results', function (req,res){
+  var searchedFor = "2016" 
+  var entered = encodeURIComponent(req.query.searchedFor);
+  if (entered.length > 0){
+    searchedFor = entered
+  }
+  var request = require('request');
+  request.get ("http://api.nytimes.com/svc/search/v2/articlesearch.json?q="+searchedFor+"&fq=news_desk:('Politics')&fq=news_desk%3A+politics&sort=newest&api-key=8cdf7518fb5468a28778c0db8fe13d98:16:72963240", function (err, response, body){
+    if (err){
+      console.log(err)
+    } 
+    var data = JSON.parse(body);
+    var articles = data.response.docs;
+    res.render("articles/results", {articles: articles, session:req.session.id})
+  });
+});
+

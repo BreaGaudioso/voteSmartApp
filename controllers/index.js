@@ -8,8 +8,13 @@ app.get('/', function(req, res){
   if (typeof req.session.id == 'string'){
     res.redirect("/users/"+req.session.id)
   } else {
-    res.render('index');
+    res.redirect("/about");
   };
+});
+
+//about page
+app.get('/about', function(req, res) {
+  res.render('index');
 });
 
 //404

@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<body>
+  <% include ../partials/navbar %>
+  <div class="container text-center">
+   <% include ../partials/firstrow %>
+   <div class=row>
+    <h3>Search <a href ="http://www.nytimes.com/pages/politics/index.html" target="_blank"> The New York Times Politics section</a> for recent articles.</h3>
+    <form method= "get" action="/articles/results">
+      <input type="text" name="searchedFor" placeholder="enter keyword">
+      <input type ="submit">
+    </form>
+  </div>
+</div>
+</body>
+</html>

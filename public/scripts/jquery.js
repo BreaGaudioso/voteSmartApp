@@ -4,23 +4,46 @@
 */
 
 
+$( document ).ready(function() {
+  console.log( "ready!" );
+  $(".REP").css("color","#0052A5");
+  $(".DEM").css("color","#E0162B");
+  $("#demButton").css("color","#E0162B");
+  $('#repButton').css('color', "#0052A5")
+  
 
-$(document).ready(function() {
+var bleep =  $("img").each(function(){
+     if ($(this).attr('src') == "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"){
+        $(this).parent().remove();
+     };
+});
 
+  $('#repButton').click(function() {
+    $(".DEM").hide();
+    $(".NNE").hide();
+    $(".REP").show();
+  });
 
-//on click hide other party 
-        $('#repButton').click(function() {
-           $(".dem").hide();
-           $(".rep").show();
-    });
-        $('#demButton').click(function() {
-           $(".rep").hide();
-           $(".dem").show();
-    });
-        $('#allButton').click(function() {
-           $(".dem").show();
-           $(".rep").show();
-    });
+  $('#demButton').click(function() {
+    console.log("clicked ")
+    $(".REP").hide();
+    $(".NNE").hide();
+    $(".DEM").show();
+  });
+  $('#allButton').click(function() {
+    console.log("clicked ")
+    $(".DEM").show();
+    $(".REP").show();
+    $(".NNE").show();
+  });
+ 
+  $('a').css("color", "#0052A5")
+  
+  $('a').mouseover(function(){
+    $(this).css("color", "#E0162B")
+  });
 
-
+  $('a').mouseout(function(){
+    $(this).css("color", "#0052A5")
+  });
 });

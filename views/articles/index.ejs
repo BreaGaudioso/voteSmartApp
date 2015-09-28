@@ -3,6 +3,7 @@
   <% include ../partials/navbar %>
     <div class="container">
       <div class='row'>
+      <% if (articles.length > 0 ) { %>
         <table class="table">
           <h1> Your Articles</h1>
           <thead>
@@ -29,8 +30,13 @@
           </tbody>
         </table>
       </div>
+            <% } else { %>
+      <div class = "text-center">
+      <h1> You have no saved articles</h2>
+      <% } %> 
       <p><a href='/users/<%=session%>/articles/new'>Add your own article</a></p>
-      <p><a href='/candidates'>Back to Candidates</a>
+      <p><a href='articles/search'>Search for an article</a></p>
+      <p><a href='/candidates'>Browse Candidates</a>
     </div>
   </body>
 </html>

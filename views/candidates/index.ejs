@@ -1,22 +1,23 @@
 <% include ../partials/header %>
 <body>
   <% include ../partials/navbar %>
-  <div class="container text-center">
+  <div class="container-fluid text-center">
     <div class="row">
       <div class="col-lg-6 col-lg-offset-3 text-center">
         <h2>Meet the Candidates</h2>
-        <button type="button" id="repButton">Republicans</button>
-        <button type="button" id="demButton">Democrats</button>
-        <button type="button" id="allButton">All</button></br>
+        <button type="button" id="repButton">Republicans</button>        
+        <button type="button" id="demButton">Democrats</button>               
+        <button type="button" id="allButton">All</button></br></br>
       </div>
     </div>
     <div class="row">
       <% for (i=0; i < candidates.length; i++) { %>
-        <div class="col-md-4" "<%= candidates[i].party %>">
+        <div class="col-sm-4 <%= candidates[i].party %>">
           <img src="<%= candidates[i].photo%>" height='280px' width='210px'></br>
             <h3><%= candidates[i].name %></h3>
              <p><%=candidates[i].partyFull%></p>
              <p><a href="/candidates/<%=candidates[i].id%>">View</a></p>
+             </br></br>
         </div>
       <% } %>
     </div>

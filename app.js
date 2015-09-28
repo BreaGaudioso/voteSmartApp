@@ -14,7 +14,7 @@ loginMiddleware = require("./middleware/loginHelper");
 routeMiddleware = require("./middleware/routeHelper");
 //use login middleware
 app.use(session({
-  maxAge: 3600000,
+  maxAge: 3600000000,
   secret: 'secret',
   name: "election"
 }));
@@ -26,6 +26,5 @@ app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 require('./controllers/index');
 
-app.listen(3000, function() {
-  console.log('Server is running on port 3000');
-});
+
+app.listen(process.env.PORT || 80)
