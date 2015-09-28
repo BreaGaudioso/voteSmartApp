@@ -11,6 +11,12 @@ $( document ).ready(function() {
   $("#demButton").css("color","#E0162B");
   $('#repButton').css('color', "#0052A5")
 
+ $("img").each(function(){
+     if ($(this).attr('src') == "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"){
+        $(this).parent().remove();
+     };
+});
+
   $('#repButton').click(function() {
     $(".DEM").hide();
     $(".NNE").hide();
