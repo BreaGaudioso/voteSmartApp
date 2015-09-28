@@ -12,12 +12,6 @@ $( document ).ready(function() {
   $('#repButton').css('color', "#0052A5")
   
 
-var bleep =  $("img").each(function(){
-     if ($(this).attr('src') == "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"){
-        $(this).parent().remove();
-     };
-});
-
   $('#repButton').click(function() {
     $(".DEM").hide();
     $(".NNE").hide();
