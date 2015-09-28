@@ -6,10 +6,10 @@
 
 $( document ).ready(function() {
   console.log( "ready!" );
-  $(".REP").css("color","#0052A5");
-  $(".DEM").css("color","#E0162B");
-  $("#demButton").css("color","#E0162B");
-  $('#repButton').css('color', "#0052A5")
+  $(".REP").css("color","#E0162B");
+  $(".DEM").css("color","#0052A5");
+  $("#demButton").css("color","#0052A5");
+  $('#repButton').css('color', "#E0162B")
 
  $("img").each(function(){
      if ($(this).attr('src') == "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"){
