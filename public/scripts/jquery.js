@@ -10,7 +10,6 @@ $( document ).ready(function() {
   $(".DEM").css("color","#E0162B");
   $("#demButton").css("color","#E0162B");
   $('#repButton').css('color', "#0052A5")
-  
 
   $('#repButton').click(function() {
     $(".DEM").hide();
