@@ -55,7 +55,7 @@ app.post('/users/:user_id/articles', routeMiddleware.ensureCorrectUser, function
 
 //search
 app.get('/articles/search', function (req,res){
-  res.render('/articles/search');
+  res.render('articles/search');
 });
 
 //searchResults
@@ -75,7 +75,6 @@ app.get('/articles/results', function (req,res){
     res.render("articles/results", {articles: articles, session:req.session.id})
   });
 });
-
 
 
 //delete article youve added 
